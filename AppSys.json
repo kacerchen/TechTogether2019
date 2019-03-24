@@ -1,0 +1,567 @@
+{
+    "ApplicationName": "AppSys",
+    "DisplayName": "Decentralized Application System",
+    "Description": "A simple application to demonstrate how blockchain facilitates official application processes.",
+    "ApplicationRoles": [
+      {
+        "Name": "Applicant",
+        "Description": "A person sending a request for applying official docs."
+      },
+      {
+        "Name": "LocalGovernment",
+        "Description": "An office processes criminal record application requested from applicants."
+      },
+      {
+        "Name": "PublicNotary",
+        "Description": "An office processes apostille application requested from applicants."
+      },
+      {
+        "Name": "School",
+        "Description": "An office provide supporting documents for applicants."
+      },
+      {
+        "Name": "Company",
+        "Description": "An office provide supporting documents for applicants."
+      },
+      {
+        "Name": "Clinic",
+        "Description": "An office processes health record application requested from applicants."
+      },
+      {
+        "Name": "ConsulateOffice",
+        "Description": "An office processes visa application requested from applicants."
+      },
+      {
+        "Name": "FederalGovernment",
+        "Description": "An office processes work permit application requested from applicants."
+      }
+    ],
+    "Workflows": [
+      {
+        "Name": "AppSys",
+        "DisplayName": "Decentralized Application System",
+        "Description": "A workflow to send an application and take actions for the application.",
+        "Initiators": [ "Applicant" ],
+        "StartState": "RequestNewApplication",
+        "Properties": [
+          {
+            "Name": "State",
+            "DisplayName": "State",
+            "Description": "Holds the state of the contract.",
+            "Type": {
+              "Name": "state"
+            }
+          },
+          {
+            "Name": "Applicant",
+            "DisplayName": "Applicant",
+            "Description": "A person sending an application.",
+            "Type": {
+              "Name": "Applicant"
+            }
+          },
+          {
+            "Name": "LocalGovernment",
+            "DisplayName": "LocalGovernment",
+            "Description": "An official processes criminal record.",
+            "Type": {
+              "Name": "LocalGovernment"
+            }
+          },
+          {
+            "Name": "PublicNotary",
+            "DisplayName": "PublicNotary",
+            "Description": "An official processes apostille as a proof that doc is authenticated.",
+            "Type": {
+              "Name": "PublicNotary"
+            }
+          },
+          {
+            "Name": "School",
+            "DisplayName": "School",
+            "Description": "An official provide supporting materials for application.",
+            "Type": {
+              "Name": "School"
+            }
+          },
+          {
+            "Name": "Company",
+            "DisplayName": "Company",
+            "Description": "An official provide supporting materials for application.",
+            "Type": {
+              "Name": "Company"
+            }
+          },
+          {
+            "Name": "Clinic",
+            "DisplayName": "Clinic",
+            "Description": "An official processes health record.",
+            "Type": {
+              "Name": "Clinic"
+            }
+          },
+          {
+            "Name": "ConsulateOffice",
+            "DisplayName": "ConsulateOffice",
+            "Description": "An official processes visa.",
+            "Type": {
+              "Name": "ConsulateOffice"
+            }
+          },
+          {
+            "Name": "FederalGovernment",
+            "DisplayName": "FederalGovernment",
+            "Description": "An official processes work permit.",
+            "Type": {
+              "Name": "FederalGovernment"
+            }
+          },
+          {
+            "Name": "ExtractedData",
+            "DisplayName": "Extracted Data",
+            "Description": "Partial data from applicant.",
+            "Type": {
+              "Name": "string"
+            }
+          },
+          {
+            "Name": "Application",
+            "DisplayName": "Your Application Details",
+            "Description": "A request application.",
+            "Type": {
+              "Name": "string"
+            }
+          },
+          {
+            "Name": "ApplicantBirth",
+            "DisplayName": "Applicant Birthdate",
+            "Description": "A birthdate.",
+            "Type": {
+              "Name": "string"
+            }
+          },
+          {
+            "Name": "ApplicantIdPhoto",
+            "DisplayName": "Applicant ID Photo",
+            "Description": "A photo url.",
+            "Type": {
+              "Name": "string"
+            }
+          },
+          {
+            "Name": "IssuedCriminalRecord",
+            "DisplayName": "Issued Criminal Record",
+            "Description": "An issued criminal record.",
+            "Type": {
+              "Name": "string"
+            }
+          },
+          {
+            "Name": "IssuedApostille",
+            "DisplayName": "Issued Apostille",
+            "Description": "An issued apostille.",
+            "Type": {
+              "Name": "string"
+            }
+          },
+          {
+            "Name": "ReceivedSupportingMaterialsFromSchool",
+            "DisplayName": "Received Supporting Materials - School",
+            "Description": "Received supporting materials from school.",
+            "Type": {
+              "Name": "string"
+            }
+          },
+          {
+            "Name": "ReceivedSupportingMaterialsFromCompany",
+            "DisplayName": "Received Supporting Materials - Company",
+            "Description": "Received supporting materials from company.",
+            "Type": {
+              "Name": "string"
+            }
+          },
+          {
+            "Name": "IssuedHealthRecord",
+            "DisplayName": "Issued Health Record",
+            "Description": "An issued health record.",
+            "Type": {
+              "Name": "string"
+            }
+          },
+          {
+            "Name": "IssuedWorkPermit",
+            "DisplayName": "Issued Work Permit",
+            "Description": "An issued work permit.",
+            "Type": {
+              "Name": "string"
+            }
+          },
+          {
+            "Name": "IssuedVisa",
+            "DisplayName": "Issued Visa",
+            "Description": "An issued visa.",
+            "Type": {
+              "Name": "string"
+            }
+          }
+        ],
+        "Constructor": {
+          "Parameters": [
+            {
+              "Name": "application",
+              "Description": "...",
+              "DisplayName": "Request New Application",
+              "Type": {
+                "Name": "string"
+              }
+            },
+            {
+              "Name": "birth",
+              "Description": "...",
+              "DisplayName": "Your Birthdate",
+              "Type": {
+                "Name": "string"
+              }
+            },
+            {
+              "Name": "photoUrl",
+              "Description": "...",
+              "DisplayName": "Your ID Photo",
+              "Type": {
+                "Name": "string"
+              }
+            }
+          ]
+        },
+        "Functions": [
+          {
+            "Name": "SendApplication",
+            "DisplayName": "Apply",
+            "Description": "...",
+            "Parameters": []
+          },
+          {
+            "Name": "SendSupportMaterialsFromSchool",
+            "DisplayName": "Upload",
+            "Description": "...",
+            "Parameters": [
+              {
+                "Name": "supportMaterials",
+                "Description": "...",
+                "DisplayName": "Support Materials",
+                "Type": {
+                  "Name": "string"
+                }
+              }
+            ]
+          },
+          {
+            "Name": "SendSupportMaterialsFromCompany",
+            "DisplayName": "Upload",
+            "Description": "...",
+            "Parameters": [
+              {
+                "Name": "supportMaterials",
+                "Description": "...",
+                "DisplayName": "Support Materials",
+                "Type": {
+                  "Name": "string"
+                }
+              }
+            ]
+          },
+          {
+            "Name": "ExtractData",
+            "DisplayName": "Extract",
+            "Description": "...",
+            "Parameters": [
+              {
+                "Name": "extractData",
+                "Description": "...",
+                "DisplayName": "Extract Data",
+                "Type": {
+                  "Name": "string"
+                }
+              }
+            ]
+          },
+          {
+            "Name": "ApproveCriminalRecord",
+            "DisplayName": "Approve",
+            "Description": "...",
+            "Parameters": [
+              {
+                "Name": "content",
+                "Description": "...",
+                "DisplayName": "Approve Message",
+                "Type": {
+                  "Name": "string"
+                }
+              }
+            ]
+          },
+          {
+            "Name": "ApproveApostlle",
+            "DisplayName": "Approve",
+            "Description": "...",
+            "Parameters": [
+              {
+                "Name": "content",
+                "Description": "...",
+                "DisplayName": "Approve Message",
+                "Type": {
+                  "Name": "string"
+                }
+              }
+            ]
+          },
+          {
+            "Name": "ApproveHealthRecord",
+            "DisplayName": "Approve",
+            "Description": "...",
+            "Parameters": [
+              {
+                "Name": "content",
+                "Description": "...",
+                "DisplayName": "Approve Message",
+                "Type": {
+                  "Name": "string"
+                }
+              }
+            ]
+          },
+          {
+            "Name": "ApproveWorkPermit",
+            "DisplayName": "Approve",
+            "Description": "...",
+            "Parameters": [
+              {
+                "Name": "content",
+                "Description": "...",
+                "DisplayName": "Approve Message",
+                "Type": {
+                  "Name": "string"
+                }
+              }
+            ]
+          },
+          {
+            "Name": "ApproveVisa",
+            "DisplayName": "Approve",
+            "Description": "...",
+            "Parameters": [
+              {
+                "Name": "content",
+                "Description": "...",
+                "DisplayName": "Approve Message",
+                "Type": {
+                  "Name": "string"
+                }
+              }
+            ]
+          },
+          {
+            "Name": "Reject",
+            "DisplayName": "Reject",
+            "Description": "...",
+            "Parameters": [
+              {
+                "Name": "content",
+                "Description": "...",
+                "DisplayName": "Reject Message",
+                "Type": {
+                  "Name": "string"
+                }
+              }
+            ]
+          }
+        ],
+        "States": [
+          {
+            "Name": "RequestNewApplication",
+            "DisplayName": "Active New Application",
+            "Description": "...",
+            "PercentComplete": 10,
+            "Value": 0,
+            "Style": "Success",
+            "Transitions": [
+              {
+                "AllowedRoles": ["LocalGovernment"],
+                "AllowedInstanceRoles": [],
+                "Description": "...",
+                "Function": "ApproveCriminalRecord",
+                "NextStates": [ "IssuedCriminalRecord" ],
+                "DisplayName": "Approved Criminal Record"
+              },
+              {
+                "AllowedRoles": ["LocalGovernment"],
+                "AllowedInstanceRoles": [],
+                "Description": "...",
+                "Function": "Reject",
+                "NextStates": [ "IssuedCriminalRecord" ],
+                "DisplayName": "Rejected Criminal Record"
+              }
+            ]
+          },
+          {
+            "Name": "IssuedCriminalRecord",
+            "DisplayName": "Issued Criminal Record",
+            "Description": "...",
+            "PercentComplete": 20,
+            "Value": 0,
+            "Style": "Success",
+            "Transitions": [
+              {
+                "AllowedRoles": ["PublicNotary"],
+                "AllowedInstanceRoles": [],
+                "Description": "...",
+                "Function": "ApproveApostlle",
+                "NextStates": [ "IssuedApostille" ],
+                "DisplayName": "Approved Apostille"
+              },
+              {
+                "AllowedRoles": ["PublicNotary"],
+                "AllowedInstanceRoles": [],
+                "Description": "...",
+                "Function": "Reject",
+                "NextStates": [ "IssuedApostille" ],
+                "DisplayName": "Rejected Apostille"
+              }
+            ]
+          },
+          {
+            "Name": "IssuedApostille",
+            "DisplayName": "Issued Apostille",
+            "Description": "...",
+            "PercentComplete": 40,
+            "Value": 0,
+            "Style": "Success",
+            "Transitions": [
+              {
+                "AllowedRoles": ["School"],
+                "AllowedInstanceRoles": [],
+                "Description": "...",
+                "Function": "SendSupportMaterialsFromSchool",
+                "NextStates": [ "SentSupportingMaterialsFromSchool" ],
+                "DisplayName": "Sent Supporting Materials"
+              }
+            ]
+          },
+          {
+            "Name": "SentSupportingMaterialsFromSchool",
+            "DisplayName": "Sent Supporting Materials By School",
+            "Description": "...",
+            "PercentComplete": 45,
+            "Value": 0,
+            "Style": "Success",
+            "Transitions": [
+              {
+                "AllowedRoles": ["Company"],
+                "AllowedInstanceRoles": [],
+                "Description": "...",
+                "Function": "SendSupportMaterialsFromCompany",
+                "NextStates": [ "SentSupportingMaterialsFromCompany" ],
+                "DisplayName": "Sent Supporting Materials"
+              }
+            ]
+          },
+          {
+            "Name": "SentSupportingMaterialsFromCompany",
+            "DisplayName": "Sent Supporting Materials by Company",
+            "Description": "...",
+            "PercentComplete": 50,
+            "Value": 0,
+            "Style": "Success",
+            "Transitions": [
+              {
+                "AllowedRoles": ["Clinic"],
+                "AllowedInstanceRoles": [],
+                "Description": "...",
+                "Function": "ApproveHealthRecord",
+                "NextStates": [ "IssuedHealthRecord" ],
+                "DisplayName": "Approved Health Record"
+              },
+              {
+                "AllowedRoles": ["Clinic"],
+                "AllowedInstanceRoles": [],
+                "Description": "...",
+                "Function": "Reject",
+                "NextStates": [ "IssuedHealthRecord" ],
+                "DisplayName": "Rejected Health Record"
+              }
+            ]
+          },
+          {
+            "Name": "IssuedHealthRecord",
+            "DisplayName": "Issued Health Record",
+            "Description": "...",
+            "PercentComplete": 60,
+            "Value": 0,
+            "Style": "Success",
+            "Transitions": [
+              {
+                "AllowedRoles": ["FederalGovernment"],
+                "AllowedInstanceRoles": [],
+                "Description": "...",
+                "Function": "ApproveWorkPermit",
+                "NextStates": [ "IssuedWorkPermit" ],
+                "DisplayName": "Approved Work Permit"
+              },
+              {
+                "AllowedRoles": ["FederalGovernment"],
+                "AllowedInstanceRoles": [],
+                "Description": "...",
+                "Function": "Reject",
+                "NextStates": [ "IssuedWorkPermit" ],
+                "DisplayName": "Rejected Work Permit"
+              }
+            ]
+          },
+          {
+            "Name": "IssuedWorkPermit",
+            "DisplayName": "Issued Work Permit",
+            "Description": "...",
+            "PercentComplete": 80,
+            "Value": 0,
+            "Style": "Success",
+            "Transitions": [
+              {
+                "AllowedRoles": ["ConsulateOffice"],
+                "AllowedInstanceRoles": [],
+                "Description": "...",
+                "Function": "ApproveVisa",
+                "NextStates": [ "Completed" ],
+                "DisplayName": "Approved Visa"
+              },
+              {
+                "AllowedRoles": ["ConsulateOffice"],
+                "AllowedInstanceRoles": [],
+                "Description": "...",
+                "Function": "Reject",
+                "NextStates": [ "Completed" ],
+                "DisplayName": "Rejected Visa"
+              }
+            ]
+          },
+          {
+            "Name": "Completed",
+            "DisplayName": "Issued Visa",
+            "Description": "...",
+            "PercentComplete": 100,
+            "Value": 0,
+            "Style": "Success",
+            "Transitions": [
+              {
+                "AllowedRoles": [],
+                "AllowedInstanceRoles": ["Applicant"],
+                "Description": "...",
+                "Function": "SendApplication",
+                "NextStates": [ "RequestNewApplication" ],
+                "DisplayName": "Request New Application"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
